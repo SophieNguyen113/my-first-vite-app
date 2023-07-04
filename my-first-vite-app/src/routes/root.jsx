@@ -7,14 +7,8 @@ export async function loader({ request }) {
     const q = url.searchParams.get("q");
     const contacts = await getContacts(q);
     return { contacts, q };
-  }
 
-  export async function loader() {
-    const contact = await createContact();
-    return redirect(`/contacts/${contact.id}/edit`);
-  }
-
-export default function Root() {
+    export default function Root() {
     const { contacts, q } = useLoaderData();
     const navigation = useNavigation();
     const submit = useSubmit();
@@ -112,6 +106,4 @@ export default function Root() {
 
       </>
     );
-  }
-
- 
+  };
